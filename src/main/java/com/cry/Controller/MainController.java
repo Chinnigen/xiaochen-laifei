@@ -19,7 +19,7 @@ public class MainController {
      * @Author: Cry
      * @Date: 2020-03-06
      */
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String sayHello() {
         return "老肥老肥 天下最肥！";
     }
