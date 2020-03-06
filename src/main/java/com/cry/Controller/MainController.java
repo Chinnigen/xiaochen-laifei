@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MainController {
 
+    /** 
+    * @Description: Hello方法
+    * @Param: [] 
+    * @return: java.lang.String 
+    * @Author: Cry
+    * @Date: 2020-03-06 
+    */ 
     @GetMapping("/")
     public String sayHello() {
         return "老肥老肥 天下最肥！";
