@@ -1,0 +1,21 @@
+2020-03-07 14:20:52.197  INFO 14068 --- [main] com.cry.App                              : Starting App on Chinnigen with PID 14068 (E:\MyGitProjects\xiaochen-laofei\target\classes started by 25118 in E:\MyGitProjects\xiaochen-laofei)
+2020-03-07 14:20:52.202  INFO 14068 --- [main] com.cry.App                              : No active profile set, falling back to default profiles: default
+2020-03-07 14:20:53.053  INFO 14068 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-03-07 14:20:53.055  INFO 14068 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-03-07 14:20:53.103  INFO 14068 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33ms. Found 0 Redis repository interfaces.
+2020-03-07 14:20:53.420  INFO 14068 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-07 14:20:53.731  INFO 14068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2020-03-07 14:20:53.742  INFO 14068 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-07 14:20:53.743  INFO 14068 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-07 14:20:53.866  INFO 14068 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-07 14:20:53.866  INFO 14068 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1581 ms
+2020-03-07 14:20:54.507  INFO 14068 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-07 14:20:55.122  INFO 14068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2020-03-07 14:20:55.127  INFO 14068 --- [main] com.cry.App                              : Started App in 3.51 seconds (JVM running for 4.994)
+2020-03-07 14:21:04.682  INFO 14068 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-07 14:21:04.684  INFO 14068 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-07 14:21:04.692  INFO 14068 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-07 14:21:07.182  INFO 14068 --- [http-nio-80-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-03-07 14:21:07.188 DEBUG 14068 --- [http-nio-80-exec-1] com.cry.dao.ISysLoginRecordDao.findAll   : ==>  Preparing: select id, login_time, login_ip,valid_flag,oper_time,oper_id from sys_login_record r where r.valid_flag = '1' 
+2020-03-07 14:21:07.337 DEBUG 14068 --- [http-nio-80-exec-1] com.cry.dao.ISysLoginRecordDao.findAll   : ==> Parameters: 
+2020-03-07 14:21:07.406 DEBUG 14068 --- [http-nio-80-exec-1] com.cry.dao.ISysLoginRecordDao.findAll   : <==      Total: 3
