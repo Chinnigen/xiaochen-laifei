@@ -19,7 +19,7 @@ public class SysLoginRecord implements Serializable {
 
     @Id
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "login_time")
     private Date loginTime;
@@ -39,7 +39,7 @@ public class SysLoginRecord implements Serializable {
     public SysLoginRecord() {
     }
 
-    public SysLoginRecord(Long id, Date loginTime, String loginIP, Boolean validFlag, Date operTime, String operID) {
+    public SysLoginRecord(Integer id, Date loginTime, String loginIP, Boolean validFlag, Date operTime, String operID) {
         this.id = id;
         this.loginTime = loginTime;
         this.loginIP = loginIP;
@@ -48,11 +48,11 @@ public class SysLoginRecord implements Serializable {
         this.operID = operID;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

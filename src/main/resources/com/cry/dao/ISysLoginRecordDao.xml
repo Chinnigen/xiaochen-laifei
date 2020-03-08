@@ -5,7 +5,7 @@
 <mapper namespace="com.cry.dao.ISysLoginRecordDao">
 
     <resultMap id="sysLoginRecordMap" type="com.cry.domain.entity.SysLoginRecord">
-        <id column="id" property="id" jdbcType="BIGINT" javaType="Long"/>
+        <id column="id" property="id" jdbcType="BIGINT" javaType="Integer"/>
         <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
         <result column="login_ip" property="loginIP" jdbcType="VARCHAR" javaType="String"/>
         <result column="valid_flag" property="validFlag" jdbcType="VARCHAR" javaType="Boolean"/>
