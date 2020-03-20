@@ -1,7 +1,7 @@
 package com.cry.dao;
 
 import com.cry.common.base.IBaseDao;
-import com.cry.domain.entity.SysLoginRecord;
+import com.cry.domain.entity.SysPermission;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -9,12 +9,13 @@ import java.util.List;
 
 /**
  * @program: xiaochen-laofei
- * @description: 访问记录Dao
+ * @description:
  * @author: Cry
- * @create: 2020-03-07 10:34
+ * @create: 2020-03-20 11:44
  **/
 @Repository
-public interface ISysLoginRecordDao extends IBaseDao<SysLoginRecord> {
+public interface ISysPermissionDao extends IBaseDao<SysPermission> {
 
-    List<SysLoginRecord> findAll();
+    List<SysPermission> findAll();
+
 }

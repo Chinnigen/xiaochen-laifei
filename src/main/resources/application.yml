@@ -1,7 +1,7 @@
 server:
   port: 8888
 
-  #控制台显示sql
+#sql日志
 logging:
   level:
     com:
@@ -11,6 +11,12 @@ logging:
     path: mylogfile.log
 
 spring:
+
+  #JSON格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
   datasource:
     #mysql配置
     username: root
@@ -36,6 +42,16 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql:true;druid.stat.slowSqlMillis=500
+
+  #配置rabbitMq 服务器
+  rabbitmq:
+    host: 49.235.134.97
+    port: 5672
+    username: admin
+    password: cry2362081
+    #虚拟host 可以不设置,使用server默认host
+    virtual-host: /vhost_mmr
+
 
 #mybaitis映射位置
 mybatis:

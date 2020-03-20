@@ -1,11 +1,8 @@
 package com.cry.service;
 
 import com.cry.common.base.IBaseService;
-import com.cry.dao.ISysLoginRecordDao;
 import com.cry.domain.entity.SysLoginRecord;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**

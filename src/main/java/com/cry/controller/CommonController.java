@@ -1,7 +1,6 @@
 package com.cry.controller;
 
 import com.cry.common.response.CommonApiResponse;
-import com.cry.domain.entity.SysLoginRecord;
 import com.cry.service.ICommonService;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.GetMapping;

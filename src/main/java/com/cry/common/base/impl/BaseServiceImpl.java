@@ -2,7 +2,6 @@ package com.cry.common.base.impl;
 
 import com.cry.common.base.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
@@ -16,7 +15,7 @@ import java.util.List;
  **/
 public abstract class BaseServiceImpl<T> implements IBaseService<T> {
 
-    @Resource
+    @Autowired
     protected Mapper<T> mapper;
 
     public Mapper<T> getMapper() {

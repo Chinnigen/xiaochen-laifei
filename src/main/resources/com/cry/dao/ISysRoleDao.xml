@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cry.dao.ISysRoleDao">
+
+    <resultMap id="sysRoleMap" type="com.cry.domain.entity.SysRole">
+        <id column="id" property="id" jdbcType="BIGINT" javaType="Integer"/>
+        <result column="role_name" property="roleName" jdbcType="VARCHAR" javaType="String"/>
+        <result column="description" property="description" jdbcType="CLOB" javaType="String"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <result column="valid_flag" property="validFlag" jdbcType="VARCHAR" javaType="Boolean"/>
+        <result column="oper_time" property="operTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <result column="oper_id" property="operID" jdbcType="VARCHAR" javaType="String"/>
+        <collection property="permissions" ofType="com.cry.domain.entity.SysPermission">
+            <id property="id" column="p_id"/>
+            <result column="p_permission_name" property="permissionName" jdbcType="VARCHAR" javaType="String"/>
+            <result column="p_description" property="description" jdbcType="CLOB" javaType="String"/>
+            <result column="p_create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <result column="p_valid_flag" property="validFlag" jdbcType="VARCHAR" javaType="Boolean"/>
+            <result column="p_oper_time" property="operTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <result column="p_oper_id" property="operID" jdbcType="VARCHAR" javaType="String"/>
+        </collection>
+    </resultMap>
+
+    <sql id="sysRoleColumnName">
+    id, role_name, description, create_time, valid_flag, oper_time, oper_id
+    </sql>
+
+    <select id="findAll" resultMap="sysRoleMap">
+        select
+        r.id,
+        r.role_name,
+        r.description,
+        r.create_time,
+        r.valid_flag,
+        r.oper_time,
+        r.oper_id,
+        p.id as p_id,
+        p.permission_name as p_permission_name,
+        p.description as p_description,
+        p.create_time as p_create_time,
+        p.valid_flag as p_valid_flag,
+        p.oper_time as p_oper_time,
+        p.oper_id as p_oper_id
+        from sys_role r
+        left join sys_role_permission rp on r.id = rp.role_id
+        left join sys_permission p on rp.permission_id = p.id
+    </select>
+
+</mapper>
