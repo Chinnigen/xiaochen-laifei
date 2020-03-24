@@ -67,6 +67,6 @@ redis:
 shiro:
   loginUrl: /login
   #无权限界面
-  unauthorizedUrl: /index
+  unauthorizedUrl: /
   #成功界面
-  successUrl: /index
+  successUrl: /
