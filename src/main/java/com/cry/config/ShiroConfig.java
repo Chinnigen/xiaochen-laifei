@@ -43,6 +43,7 @@ public class ShiroConfig {
         pathDefinitions.put("/webjars/**", "anon");
         pathDefinitions.put("/v2/**", "anon");
         pathDefinitions.put("/configuration/**", "anon");
+        pathDefinitions.put("/", "anon");
         pathDefinitions.put("/**", "authc");
         chain.addPathDefinitions(pathDefinitions);
         return chain;
