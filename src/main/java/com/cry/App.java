@@ -11,7 +11,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @author: Cry
  * @create: 2020-03-06 16:32
  **/
-@SpringBootApplication(scanBasePackages = {"com.cry"})
+@SpringBootApplication(scanBasePackages = {"com.cry.*"})
 @EnableCaching
 @MapperScan("com.cry.dao")
 public class App /*extends SpringBootServletInitializer*/ {
