@@ -4,12 +4,17 @@ import com.cry.common.base.impl.BaseServiceImpl;
 import com.cry.common.constant.OperEnum;
 import com.cry.common.constant.ResponseCode;
 import com.cry.common.exception.CommonBizException;
+import com.cry.common.response.CommonApiResponse;
 import com.cry.dao.ISysLoginRecordDao;
 import com.cry.dao.ISysLoginUserDao;
 import com.cry.domain.entity.SysLoginRecord;
 import com.cry.domain.entity.SysLoginUser;
 import com.cry.service.ISysLoginUserService;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.ShiroException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
@@ -43,15 +48,15 @@ public class SysLoginUserServiceImpl extends BaseServiceImpl<SysLoginUser> imple
     @Override
     @Transactional
     public Boolean commonLogin(String userName, String password, String loginIP) {
-        SysLoginUser user = new SysLoginUser();
-        user.setUserName(userName);
-        user = sysLoginUserDao.selectOne(user);
-        if (user.getId() == null) {
-            return false;
+        try {
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(new UsernamePasswordToken(userName, password));
+            SysLoginUser user = getOneByUserName(userName);
+            int i = sysLoginRecordDao.insertSelective(new SysLoginRecord(null, user.getId(), null, loginIP, null, null, OperEnum.WEB_MANAGER.operID()));
+            return i > 0;
+        } catch (ShiroException e1) {
+            throw new CommonBizException(ResponseCode.USER_LOGIN_ERROR);
         }
-        boolean loginResult = user.getPassword().equals(DigestUtils.sha1Hex(password));
-        int count = sysLoginRecordDao.insertSelective(new SysLoginRecord(null, user.getId(), null, loginIP, null, null, OperEnum.WEB_MANAGER.operID()));
-        return loginResult && count > 0;
     }
 
     @Override

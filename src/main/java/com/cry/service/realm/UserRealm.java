@@ -52,7 +52,6 @@ public class UserRealm extends AuthorizingRealm {
             throw new CommonBizException(ResponseCode.PARAM_IS_BLANK);
         }
         SysLoginUser user = sysLoginUserService.getOneByUserName(username);
-        System.out.println(user.toString());
         if (ObjectUtils.isEmpty(user)) {
             throw new CommonBizException(ResponseCode.USER_NOT_EXIST);
         }

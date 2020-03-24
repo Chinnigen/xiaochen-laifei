@@ -40,13 +40,7 @@ public class LoginController {
     @PostMapping("/commonlogin")
     @ApiOperation("Web登录通用接口")
     public CommonApiResponse commonLogin(@RequestBody @Valid LoginVO vo) {
-        try {
-            Subject subject = SecurityUtils.getSubject();
-            subject.login(new UsernamePasswordToken(vo.getUserName(), vo.getPassword()));
-        } catch (ShiroException e1) {
-            return CommonApiResponse.error(ResponseCode.USER_LOGIN_ERROR);
-        }
-        return CommonApiResponse.success();
+        return sysLoginUserService.commonLogin(vo.getUserName(), vo.getPassword(), vo.getLoginIP()) ? CommonApiResponse.success() : CommonApiResponse.error(ResponseCode.USER_LOGIN_ERROR);
     }
 
     @PostMapping("/commonlogon")
