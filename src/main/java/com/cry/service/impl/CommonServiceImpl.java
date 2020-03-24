@@ -20,7 +20,7 @@ import java.util.List;
 @Service("commonService")
 public class CommonServiceImpl extends BaseServiceImpl<SysLoginRecord> implements ICommonService {
 
-    @Resource(name = "ISysLoginRecordDao")
+    @Resource
     private ISysLoginRecordDao sysLoginRecordDao;
 
     @Override

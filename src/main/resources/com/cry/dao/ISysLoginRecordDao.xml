@@ -10,7 +10,7 @@
         <result column="login_ip" property="loginIP" jdbcType="VARCHAR" javaType="String"/>
         <result column="valid_flag" property="validFlag" jdbcType="VARCHAR" javaType="Boolean"/>
         <result column="oper_time" property="operTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-        <result column="oper_id" property="operID" jdbcType="VARCHAR" javaType="String"/>
+        <result column="oper_id" property="operID" jdbcType="BIGINT" javaType="Integer"/>
     </resultMap>
 
 

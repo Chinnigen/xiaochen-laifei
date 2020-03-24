@@ -1,4 +1,4 @@
-package com.cry.domain.model.VO;
+package com.cry.domain.model.vo;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -30,7 +30,7 @@ public class LoginVO {
     public LoginVO() {
     }
 
-    public LoginVO(String userName, String password, String loginIP, Date loginTime) {
+    public LoginVO(@NotBlank(message = "用户名不能为空") String userName, @NotBlank(message = "密码不能为空") String password, @NotBlank(message = "登录IP不能为空") String loginIP, @NotNull(message = "日期不能为空") Date loginTime) {
         this.userName = userName;
         this.password = password;
         this.loginIP = loginIP;

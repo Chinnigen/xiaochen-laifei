@@ -1,7 +1,5 @@
 package com.cry;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import tk.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +11,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @author: Cry
  * @create: 2020-03-06 16:32
  **/
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.cry"})
 @EnableCaching
 @MapperScan("com.cry.dao")
 public class App /*extends SpringBootServletInitializer*/ {

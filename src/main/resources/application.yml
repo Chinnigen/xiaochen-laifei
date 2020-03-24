@@ -61,3 +61,12 @@ mybatis:
 #redis配置
 redis:
   host: 49.235.134.97
+
+#shiro配置
+#登录界面
+shiro:
+  loginUrl: /login
+  #无权限界面
+  unauthorizedUrl: /index
+  #成功界面
+  successUrl: /index

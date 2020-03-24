@@ -2,12 +2,16 @@ package com.cry.controller;
 
 import com.cry.common.constant.ResponseCode;
 import com.cry.common.response.CommonApiResponse;
-import com.cry.domain.model.VO.LoginVO;
+import com.cry.domain.entity.SysLoginUser;
+import com.cry.domain.model.vo.LoginVO;
+import com.cry.domain.model.vo.RegisterVO;
 import com.cry.service.ISysLoginUserService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.ShiroException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -35,14 +39,20 @@ public class LoginController {
 
     @PostMapping("/commonlogin")
     @ApiOperation("Web登录通用接口")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "LoginVO", value = "登录对象", required = true, dataType = "LoginVO"),
-    })
-    public CommonApiResponse getSysLoginRecord(@RequestBody @Valid LoginVO vo) {
-        Boolean flag = sysLoginUserService.commonLogin(vo);
-        if (flag) {
-            return CommonApiResponse.success();
+    public CommonApiResponse commonLogin(@RequestBody @Valid LoginVO vo) {
+        try {
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(new UsernamePasswordToken(vo.getUserName(), vo.getPassword()));
+        } catch (ShiroException e1) {
+            return CommonApiResponse.error(ResponseCode.USER_LOGIN_ERROR);
         }
-        return CommonApiResponse.error(ResponseCode.USER_LOGIN_ERROR);
+        return CommonApiResponse.success();
+    }
+
+    @PostMapping("/commonlogon")
+    @ApiOperation("Web注册通用接口")
+    public CommonApiResponse commonRegister(@RequestBody @Valid RegisterVO vo) {
+        SysLoginUser user = vo.toSysLoginUser();
+        return sysLoginUserService.commonLogon(user) ? CommonApiResponse.success() : CommonApiResponse.error(ResponseCode.USER_REGISTER_ERROR);
     }
 }

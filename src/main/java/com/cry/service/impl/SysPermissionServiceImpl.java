@@ -18,7 +18,7 @@ import java.util.List;
 @Service("sysPermissionService")
 public class SysPermissionServiceImpl extends BaseServiceImpl<SysPermission> implements ISysPermissionService {
 
-    @Resource(name = "ISysPermissionDao")
+    @Resource
     private ISysPermissionDao sysPermissionDao;
 
     @Override

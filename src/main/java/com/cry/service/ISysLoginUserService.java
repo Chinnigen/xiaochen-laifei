@@ -2,7 +2,6 @@ package com.cry.service;
 
 import com.cry.common.base.IBaseService;
 import com.cry.domain.entity.SysLoginUser;
-import com.cry.domain.model.VO.LoginVO;
 
 import java.util.List;
 
@@ -16,6 +15,10 @@ public interface ISysLoginUserService extends IBaseService<SysLoginUser> {
 
     List<SysLoginUser> getAllSysLoginUser();
 
-    Boolean commonLogin(LoginVO vo);
+    Boolean commonLogin(String userName, String password, String loginIP);
+
+    Boolean commonLogon(SysLoginUser user);
+
+    SysLoginUser getOneByUserName(String userName);
 
 }

@@ -34,6 +34,9 @@ public class SysLoginUser implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "salt")
+    private String salt;
+
     @Column(name = "create_time")
     private Date createTime;
 
@@ -51,12 +54,13 @@ public class SysLoginUser implements Serializable {
     public SysLoginUser() {
     }
 
-    public SysLoginUser(Integer id, String userName, String password, String phone, String email, Date createTime, Boolean validFlag, Date operTime, String operID, List<SysRole> roles) {
+    public SysLoginUser(Integer id, String userName, String password, String phone, String email, String salt, Date createTime, Boolean validFlag, Date operTime, String operID, List<SysRole> roles) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.phone = phone;
         this.email = email;
+        this.salt = salt;
         this.createTime = createTime;
         this.validFlag = validFlag;
         this.operTime = operTime;
@@ -104,6 +108,14 @@ public class SysLoginUser implements Serializable {
         this.email = email;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -142,5 +154,22 @@ public class SysLoginUser implements Serializable {
 
     public void setRoles(List<SysRole> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "SysLoginUser{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", salt='" + salt + '\'' +
+                ", createTime=" + createTime +
+                ", validFlag=" + validFlag +
+                ", operTime=" + operTime +
+                ", operID='" + operID + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

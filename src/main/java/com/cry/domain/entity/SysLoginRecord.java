@@ -21,6 +21,9 @@ public class SysLoginRecord implements Serializable {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "user_id")
+    private Integer userID;
+
     @Column(name = "login_time")
     private Date loginTime;
 
@@ -34,13 +37,14 @@ public class SysLoginRecord implements Serializable {
     private Date operTime;
 
     @Column(name = "oper_id")
-    private String operID;
+    private Integer operID;
 
     public SysLoginRecord() {
     }
 
-    public SysLoginRecord(Integer id, Date loginTime, String loginIP, Boolean validFlag, Date operTime, String operID) {
+    public SysLoginRecord(Integer id, Integer userID, Date loginTime, String loginIP, Boolean validFlag, Date operTime, Integer operID) {
         this.id = id;
+        this.userID = userID;
         this.loginTime = loginTime;
         this.loginIP = loginIP;
         this.validFlag = validFlag;
@@ -54,6 +58,14 @@ public class SysLoginRecord implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
     }
 
     public Date getLoginTime() {
@@ -88,23 +100,11 @@ public class SysLoginRecord implements Serializable {
         this.operTime = operTime;
     }
 
-    public String getOperID() {
+    public Integer getOperID() {
         return operID;
     }
 
-    public void setOperID(String operID) {
+    public void setOperID(Integer operID) {
         this.operID = operID;
-    }
-
-    @Override
-    public String toString() {
-        return "SysLoginRecord{" +
-                "id=" + id +
-                ", loginTime=" + loginTime +
-                ", loginIP='" + loginIP + '\'' +
-                ", validFlag=" + validFlag +
-                ", operTime=" + operTime +
-                ", operID='" + operID + '\'' +
-                '}';
     }
 }

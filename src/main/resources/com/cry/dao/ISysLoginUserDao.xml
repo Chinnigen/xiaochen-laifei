@@ -10,10 +10,11 @@
         <result column="password" property="password" jdbcType="VARCHAR" javaType="String"/>
         <result column="phone" property="phone" jdbcType="VARCHAR" javaType="String"/>
         <result column="email" property="email" jdbcType="VARCHAR" javaType="String"/>
+        <result column="salt" property="salt" jdbcType="VARCHAR" javaType="String"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
         <result column="valid_flag" property="validFlag" jdbcType="VARCHAR" javaType="Boolean"/>
         <result column="oper_time" property="operTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-        <result column="oper_id" property="operID" jdbcType="VARCHAR" javaType="String"/>
+        <result column="oper_id" property="operID" jdbcType="BIGINT" javaType="Integer"/>
         <collection property="roles" ofType="com.cry.domain.entity.SysRole">
             <id column="r_id" property="id" jdbcType="BIGINT" javaType="Integer"/>
             <result column="r_role_name" property="roleName" jdbcType="VARCHAR" javaType="String"/>
@@ -21,7 +22,7 @@
             <result column="r_create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
             <result column="r_valid_flag" property="validFlag" jdbcType="VARCHAR" javaType="Boolean"/>
             <result column="r_oper_time" property="operTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-            <result column="r_oper_id" property="operID" jdbcType="VARCHAR" javaType="String"/>
+            <result column="r_oper_id" property="operID" jdbcType="BIGINT" javaType="Integer"/>
             <collection property="permissions" ofType="com.cry.domain.entity.SysPermission">
                 <id property="id" column="p_id"/>
                 <result column="p_permission_name" property="permissionName" jdbcType="VARCHAR" javaType="String"/>
@@ -29,7 +30,7 @@
                 <result column="p_create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
                 <result column="p_valid_flag" property="validFlag" jdbcType="VARCHAR" javaType="Boolean"/>
                 <result column="p_oper_time" property="operTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-                <result column="p_oper_id" property="operID" jdbcType="VARCHAR" javaType="String"/>
+                <result column="p_oper_id" property="operID" jdbcType="BIGINT" javaType="Integer"/>
             </collection>
         </collection>
     </resultMap>
@@ -46,6 +47,7 @@
 		u.`password`,
 		u.phone,
 		u.email,
+	    u.salt,
 		u.valid_flag,
 		u.create_time,
 		u.oper_id,
@@ -69,6 +71,56 @@
         left join sys_role r on ur.role_id = r.id
         left join sys_role_permission rp on r.id = rp.role_id
         left join sys_permission p on rp.permission_id = p.id
+    </select>
+
+    <select id="getListByMap" resultMap="sysLoginUserMap">
+        select
+        u.id,
+        u.user_name,
+        u.`password`,
+        u.phone,
+        u.email,
+        u.salt,
+        u.valid_flag,
+        u.create_time,
+        u.oper_id,
+        u.oper_time,
+        r.id as r_id,
+        r.role_name as r_role_name,
+        r.description as r_description,
+        r.valid_flag as r_valid_flag,
+        r.create_time as r_create_time,
+        r.oper_time as r_oper_time,
+        r.oper_id as r_oper_id,
+        p.id as p_id,
+        p.permission_name as p_permission_name,
+        p.description as p_description,
+        p.valid_flag as p_valid_flag,
+        p.create_time as p_create_time,
+        p.oper_time as p_oper_time,
+        p.oper_id as p_oper_id
+        from sys_login_user u
+        left join sys_user_role ur on u.id = ur.user_id
+        left join sys_role r on ur.role_id = r.id
+        left join sys_role_permission rp on r.id = rp.role_id
+        left join sys_permission p on rp.permission_id = p.id
+        <where>
+            <if test="params.userName != null and params.userName != ''">
+                and u.user_name = #{params.userName}
+            </if>
+            <if test="params.password != null and params.password != ''">
+                and u.password = #{params.password}
+            </if>
+            <if test="params.phone != null and params.phone != ''">
+                and u.phone = #{params.phone}
+            </if>
+            <if test="params.email != null and params.email != ''">
+                and u.email = #{params.email}
+            </if>
+            <if test="params.operID != null and params.operID != ''">
+                and u.oper_id = #{params.operID}
+            </if>
+        </where>
     </select>
 
 </mapper>

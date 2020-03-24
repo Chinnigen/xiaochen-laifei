@@ -18,7 +18,7 @@ import java.util.List;
 @Service("sysRoleService")
 public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements ISysRoleService {
 
-    @Resource(name = "ISysRoleDao")
+    @Resource
     private ISysRoleDao sysRoleDao;
 
     @Override
