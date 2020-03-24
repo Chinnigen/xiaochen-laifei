@@ -39,6 +39,7 @@ public class ShiroConfig {
         pathDefinitions.put("/login/commonlogin", "anon");
         pathDefinitions.put("/login/commonlogon", "anon");
         pathDefinitions.put("/swagger-ui.html", "anon");
+        pathDefinitions.put("/webjars/**", "anon");
         pathDefinitions.put("/v2/**", "anon");
         pathDefinitions.put("/swagger-resources/**", "anon");
         pathDefinitions.put("/**", "authc");
