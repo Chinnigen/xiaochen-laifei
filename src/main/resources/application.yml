@@ -52,7 +52,6 @@ spring:
     #虚拟host 可以不设置,使用server默认host
     virtual-host: /vhost_mmr
 
-
 #mybaitis映射位置
 mybatis:
   mapper-locations: classpath:com/cry/dao/*.xml
@@ -70,3 +69,9 @@ shiro:
   unauthorizedUrl: /
   #成功界面
   successUrl: /
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+       host: www.xiaochen-laofei.cn
