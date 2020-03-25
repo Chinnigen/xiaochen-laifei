@@ -1,5 +1,6 @@
 package com.cry.domain.model.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
@@ -24,7 +25,7 @@ public class LoginVO {
     private String loginIP;
 
     @NotNull(message = "日期不能为空")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date loginTime;
 
     public LoginVO() {

@@ -70,6 +70,7 @@ shiro:
   #成功界面
   successUrl: /
 
+#加上域名后 swagger的接口才能正常调用
 springfox:
   documentation:
     swagger:
