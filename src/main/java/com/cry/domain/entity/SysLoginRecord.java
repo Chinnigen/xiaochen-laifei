@@ -1,5 +1,8 @@
 package com.cry.domain.entity;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +18,8 @@ import java.util.Date;
  **/
 @Entity
 @Table(name = "sys_login_record")
+@Data
+@Accessors(chain = true)
 public class SysLoginRecord implements Serializable {
 
     @Id
@@ -52,59 +57,4 @@ public class SysLoginRecord implements Serializable {
         this.operID = operID;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getUserID() {
-        return userID;
-    }
-
-    public void setUserID(Integer userID) {
-        this.userID = userID;
-    }
-
-    public Date getLoginTime() {
-        return loginTime;
-    }
-
-    public void setLoginTime(Date loginTime) {
-        this.loginTime = loginTime;
-    }
-
-    public String getLoginIP() {
-        return loginIP;
-    }
-
-    public void setLoginIP(String loginIP) {
-        this.loginIP = loginIP;
-    }
-
-    public Boolean getValidFlag() {
-        return validFlag;
-    }
-
-    public void setValidFlag(Boolean validFlag) {
-        this.validFlag = validFlag;
-    }
-
-    public Date getOperTime() {
-        return operTime;
-    }
-
-    public void setOperTime(Date operTime) {
-        this.operTime = operTime;
-    }
-
-    public Integer getOperID() {
-        return operID;
-    }
-
-    public void setOperID(Integer operID) {
-        this.operID = operID;
-    }
 }

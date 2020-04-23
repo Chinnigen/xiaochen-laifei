@@ -1,5 +1,8 @@
 package com.cry.domain.entity;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,6 +19,8 @@ import java.util.List;
  **/
 @Entity
 @Table(name = "sys_login_user")
+@Data
+@Accessors(chain = true)
 public class SysLoginUser implements Serializable {
 
     @Id
@@ -66,110 +71,5 @@ public class SysLoginUser implements Serializable {
         this.operTime = operTime;
         this.operID = operID;
         this.roles = roles;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Boolean getValidFlag() {
-        return validFlag;
-    }
-
-    public void setValidFlag(Boolean validFlag) {
-        this.validFlag = validFlag;
-    }
-
-    public Date getOperTime() {
-        return operTime;
-    }
-
-    public void setOperTime(Date operTime) {
-        this.operTime = operTime;
-    }
-
-    public String getOperID() {
-        return operID;
-    }
-
-    public void setOperID(String operID) {
-        this.operID = operID;
-    }
-
-    public List<SysRole> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<SysRole> roles) {
-        this.roles = roles;
-    }
-
-    @Override
-    public String toString() {
-        return "SysLoginUser{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", salt='" + salt + '\'' +
-                ", createTime=" + createTime +
-                ", validFlag=" + validFlag +
-                ", operTime=" + operTime +
-                ", operID='" + operID + '\'' +
-                ", roles=" + roles +
-                '}';
     }
 }

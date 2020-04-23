@@ -1,4 +1,4 @@
-package com.cry.common.enums;
+package com.cry.common.base.constants;
 
 /**
  * @program: xiaochen-laofei

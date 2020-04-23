@@ -1,4 +1,4 @@
-package com.cry.common.constant;
+package com.cry.common.enums;
 
 /**
 * @Description:  常用正则表达式

@@ -1,6 +1,6 @@
 package com.cry.common.response;
 
-import com.cry.common.constant.ResponseCode;
+import com.cry.common.base.constants.ResponseCode;
 
 import java.util.HashMap;
 import java.util.Map;

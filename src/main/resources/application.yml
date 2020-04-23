@@ -19,9 +19,9 @@ spring:
 
   datasource:
     #mysql配置
-    username: root
-    password: cry2362081
-    url: jdbc:mysql://49.235.134.97:3306/xiaochen-laofei
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:cry2362081}
+    url: ${MYSQL_DATABASE:jdbc:mysql://49.235.134.97:3306/xiaochen-laofei?useSSL=false&characterEncoding=utf8}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
@@ -42,6 +42,14 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql:true;druid.stat.slowSqlMillis=500
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB  #设置支持的单个上传文件大小
+      max-request-size: 6MB  #设置最大的请求文件大小，设置总体大小的请求
+      file-size-threshold: 512KB #当上传文件达到指定配置量的时候，会将文件内容写入到磁盘
+      location: /   #设置上传文件的临时目录
 
   #配置rabbitMq 服务器
   rabbitmq:

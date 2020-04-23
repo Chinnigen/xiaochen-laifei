@@ -1,6 +1,6 @@
 package com.cry.common.exception;
 
-import com.cry.common.constant.ResponseCode;
+import com.cry.common.base.constants.ResponseCode;
 
 /**
  * @program: xiaochen-laofei

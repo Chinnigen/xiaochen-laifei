@@ -1,5 +1,6 @@
 package com.cry;
 
+import com.cry.common.init.ConfigApplicationContextInitializer;
 import tk.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,15 +15,10 @@ import org.springframework.cache.annotation.EnableCaching;
 @SpringBootApplication
 @EnableCaching
 @MapperScan("com.cry.dao")
-public class App /*extends SpringBootServletInitializer*/ {
+public class App {
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication springApplication = new SpringApplication(App.class);
+        springApplication.addInitializers(new ConfigApplicationContextInitializer());
+        springApplication.run(args);
     }
-
-    /*
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(App.class);
-    }
-    */
 }

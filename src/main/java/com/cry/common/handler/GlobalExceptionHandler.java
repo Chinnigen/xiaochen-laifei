@@ -1,6 +1,6 @@
 package com.cry.common.handler;
 
-import com.cry.common.constant.ResponseCode;
+import com.cry.common.base.constants.ResponseCode;
 import com.cry.common.exception.CommonBizException;
 import com.cry.common.response.CommonApiResponse;
 import org.springframework.http.converter.HttpMessageNotReadableException;

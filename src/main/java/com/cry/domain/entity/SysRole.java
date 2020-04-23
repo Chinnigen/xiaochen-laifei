@@ -1,5 +1,8 @@
 package com.cry.domain.entity;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,6 +19,8 @@ import java.util.List;
  **/
 @Entity
 @Table(name = "sys_role")
+@Data
+@Accessors(chain = true)
 public class SysRole implements Serializable {
 
     @Id
@@ -53,70 +58,6 @@ public class SysRole implements Serializable {
         this.createTime = createTime;
         this.operID = operID;
         this.operTime = operTime;
-        this.permissions = permissions;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Boolean getValidFlag() {
-        return validFlag;
-    }
-
-    public void setValidFlag(Boolean validFlag) {
-        this.validFlag = validFlag;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getOperID() {
-        return operID;
-    }
-
-    public void setOperID(String operID) {
-        this.operID = operID;
-    }
-
-    public Date getOperTime() {
-        return operTime;
-    }
-
-    public void setOperTime(Date operTime) {
-        this.operTime = operTime;
-    }
-
-    public List<SysPermission> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(List<SysPermission> permissions) {
         this.permissions = permissions;
     }
 }

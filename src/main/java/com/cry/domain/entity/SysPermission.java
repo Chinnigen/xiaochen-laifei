@@ -1,5 +1,8 @@
 package com.cry.domain.entity;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +18,8 @@ import java.util.Date;
  **/
 @Entity
 @Table(name = "sys_permission")
+@Data
+@Accessors(chain = true)
 public class SysPermission implements Serializable {
 
     @Id
@@ -49,62 +54,6 @@ public class SysPermission implements Serializable {
         this.createTime = createTime;
         this.validFlag = validFlag;
         this.operTime = operTime;
-        this.operID = operID;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPermissionName() {
-        return permissionName;
-    }
-
-    public void setPermissionName(String permissionName) {
-        this.permissionName = permissionName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Boolean getValidFlag() {
-        return validFlag;
-    }
-
-    public void setValidFlag(Boolean validFlag) {
-        this.validFlag = validFlag;
-    }
-
-    public Date getOperTime() {
-        return operTime;
-    }
-
-    public void setOperTime(Date operTime) {
-        this.operTime = operTime;
-    }
-
-    public String getOperID() {
-        return operID;
-    }
-
-    public void setOperID(String operID) {
         this.operID = operID;
     }
 }

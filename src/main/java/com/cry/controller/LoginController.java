@@ -1,6 +1,6 @@
 package com.cry.controller;
 
-import com.cry.common.constant.ResponseCode;
+import com.cry.common.base.constants.ResponseCode;
 import com.cry.common.response.CommonApiResponse;
 import com.cry.domain.entity.SysLoginUser;
 import com.cry.domain.model.vo.LoginVO;

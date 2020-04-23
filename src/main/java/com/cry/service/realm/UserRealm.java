@@ -1,6 +1,6 @@
 package com.cry.service.realm;
 
-import com.cry.common.constant.ResponseCode;
+import com.cry.common.base.constants.ResponseCode;
 import com.cry.common.exception.CommonBizException;
 import com.cry.domain.entity.SysLoginUser;
 import com.cry.service.ISysLoginUserService;

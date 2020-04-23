@@ -1,14 +1,11 @@
 package com.cry.domain.model.vo;
 
-import com.cry.common.constant.OperEnum;
+import com.cry.common.enums.OperEnum;
 import com.cry.domain.entity.SysLoginUser;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Sha1Hash;
-import org.apache.shiro.crypto.hash.SimpleHash;
 
 import javax.validation.constraints.NotBlank;
-import java.util.UUID;
 
 /**
  * @program: xiaochen-laofei
